@@ -1,0 +1,74 @@
+<!-- edit task modal -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">edit task</h4>
+            </div>
+            <div class="modal-body">
+                <p>Change the task fields as required. Please enter only valid data.</p>
+                <form>
+                    <input type="text" id="editTaskID" style="display: none;">
+                    <div class="form-group">
+                        <label for="editTaskLabel">label:</label>
+                        <input type="text" class="form-control" id="editTaskLabel" placeholder="insert task headline (required)" dir="auto">
+                        <span id="editTaskLabelError" class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="editTaskDesc">description:</label>
+                        <input type="text" class="form-control" id="editTaskDesc" placeholder="insert task secondary title" dir="auto">
+                        <span id="editTaskDescError" class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>date and time:
+                            <div class='input-group date' id='editSelectNewTaskTime'>
+                                <input type='text' class="form-control" id="editTaskTime" placeholder="pick task time and date (required)" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </label>
+                        <span id="editTaskTimeError" class="help-block"></span>
+                    </div>
+                    <div class="chose-status">
+                        <p>status:</p>
+                        <label class="radio-inline">
+                            <input type="radio" name="statusOptions" id="editStatusWaiting" value="waiting"> waiting
+                        </label>
+                            <label class="radio-inline">
+                        <input type="radio" name="statusOptions" id="editStatusInProcess" value="in process"> in process
+                            </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="statusOptions" id="editStatusDone" value="done"> done
+                        </label>
+                    </div>
+                    <div class="chose-priority">
+                        <p>priority:</p>
+                        <label class="radio-inline">
+                            <input type="radio" name="priorityOptions" id="editPriorityLow" value="low"> low
+                        </label>
+                            <label class="radio-inline">
+                        <input type="radio" name="priorityOptions" id="editPriorityMedium" value="medium"> medium
+                            </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="priorityOptions" id="editPriorityHigh" value="high"> high
+                        </label>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-md-12">note:
+                            <textarea class="form-control" id="editTaskNote" name="taskNote" rows="3" dir="auto"></textarea>
+                            <span id="editTaskNoteError" class="help-block"></span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="editTaskClose" data-dismiss="modal">close</button>
+                <button id="editTask" type="button" class="btn btn-primary">edit</button>
+                <p class="editError"></p>
+                <p class="editSuccess"></p>
+            </div>
+        </div>
+    </div>
+</div>

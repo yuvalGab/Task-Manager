@@ -1,0 +1,51 @@
+<!-- relevant tasks area -->
+<div class="tasks">
+    <% if (tasks != '') { %>
+        <% tasks.forEach(function(task) { %>
+            <div class="task-wrapper col-md-3 col-sm-4">
+                <div class="task">
+                    <div class="task-options">
+                        <img class="deleteTask" src="../client/images/delete-icon.png" alt="delete-icon">
+                        <img class="editTask" src="../client/images/edit-icon.png" alt="edit-icon" data-toggle="modal" data-target="#editTaskModal">
+                        <img class="showNote" src="../client/images/note-icon.png" alt="note-icon">
+                    </div>
+                    <div class="task-content">
+                        <p class="task-id" style="display: none;"><%= task._id %></p>
+                        <p class="task-date">
+                            <span class="task-day"><%= task.date.day %></span>/<span class="task-month"><%= task.date.month %></span>/<span class="task-year"><%= task.date.year %></span>
+                            <span> | </span><span class="task-hour"><%= task.date.hour %></span>:<span class="task-minute"><%= task.date.minute %></span> | <span><%= task.date.dayInTheWeek %></span>
+                        </p>
+                        <h4 dir="auto"><%= task.label %></h4>
+                        <p dir="auto" class="task-desc"><%= task.desc %></p>
+                        <p class="task-status">status: 
+                            <select class="select-status">
+                                <% if (task.status == 'waiting') { %>
+                                    <option selected>waiting</option>
+                                <% } else { %>
+                                    <option>waiting</option>
+                                <% } %>
+                                <% if (task.status == 'in process') { %>
+                                    <option selected>in process</option>
+                                <% } else { %>
+                                    <option>in process</option>
+                                <% } %>
+                                <% if (task.status == 'done') { %>
+                                    <option selected>done</option>
+                                <% } else { %>
+                                    <option>done</option>
+                                <% } %>
+                            </select>
+                        </p>
+                        <p class="task-priority">priority: <%= task.priority %></p>
+                    </div>
+                    <div class="task-note">
+                        <span class="close close-note">&times;</span>
+                        <p dir="auto"><%= task.note %></p>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <h4 class="no-tasks">no tasks found</h4>
+    <% } %>
+</div>

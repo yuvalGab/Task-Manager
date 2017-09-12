@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+.timeline{
+    min-height: 400px;
+    max-height: 600px;
+    border-right: 2px dashed rgba(0,0,0,0.4);
+    padding: 200px 50px;
+    overflow-y: auto;
+    border-radius: 30px;
+    font-family: 'Indie Flower', cursive;
+}
+.daily-details{
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border: 2px dotted #8baae2;
+    margin: 35px 0px;
+    border-radius: 50px 150px;
+    background-color: rgba(53,235,54, 0.5);
+    box-shadow: 0px 0px 5px white;
+    padding: 15px;
+    opacity: 0.4;
+    transition: opacity 500ms;
+}
+.daily-details:hover{
+    opacity: 1;
+}
+.timeline::-webkit-scrollbar{
+    width: 0px;
+    background: transparent; 
+}
+.daily-details > h4{
+    text-shadow: 0px 0px 4px green;
+}
+.daily-status{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.daily-status > div{
+    height: 80px;
+    width: 80px;
+    border: 3px solid white;
+    border-radius: 100%;
+    margin: 10px;
+    box-shadow: 0px 0px 2px black;
+    font-size: 50px;
+    color: white;
+    text-shadow: 0px 0px 1px black;
+}
+.daily-waiting{
+    background-color: #d65139;
+}
+.daily-in-process{
+    background-color: #d6c837;
+}
+.daily-done{
+    background-color: #347a25;
+}
+.instructions > div{
+    color: white;
+    text-shadow: 0px 0px 1px black;
+}
+#max-timeline, #min-timeline{
+    text-align: center;
+    color: red;
+    font-size: 36px;
+}
+.days-gap{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+@media(max-width: 1000px) {
+    .daily-details{
+        opacity: 0.9;
+    }
+}

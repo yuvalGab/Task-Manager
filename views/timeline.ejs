@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">   
+    <link rel="stylesheet" href="../client/stylesheets/Normalize.css">
+    <link rel="stylesheet" href="../client/stylesheets/global.css">
+    <link rel="stylesheet" href="../client/stylesheets/home.css">
+    <link rel="stylesheet" href="../client/stylesheets/timeline.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header>
+
+            <!-- main navbar -->
+            <% include templates/navbar.ejs %>
+
+        </header>
+
+        <main>
+
+            <!-- sidebar -->
+            <% include templates/sidebar.ejs %>
+
+                <!-- page content -->
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+
+                        <!-- sidebar toggle button -->
+                        <button type="button" class="btn btn-info" id="porfile-btn">profile</button>
+
+                        <!-- timeline page -->
+                        <div class="timeline-page">
+
+                            <h1 class="page-label">timeline</h1>
+                            <div class="row">
+                                <div class="instructions col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 alert fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <p>Scroll up and down to see a summary of tasks for each day.</p>
+                                    <h3>key:</h3>
+                                    <div class="daily-waiting col-md-4">waiting</div>
+                                    <div class="daily-in-process col-md-4">in process</div>
+                                    <div class="daily-done col-md-4">done</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-2"></div>
+                            <div class="timeline col-md-6 col-sm-8">
+                                <div class="daily-details">
+                                    <h4><span class="daily-day"><%= day %></span>/<span class="daily-month"><%= month %></span>/<span class="daily-year"><%= year %></span></h4>
+                                    <h5></h5>
+                                    <p class="days-gap">0</p>
+                                    <div class="daily-status">
+                                        <div class="daily-waiting col-md-4"><%= waiting %></div>
+                                        <div class="daily-in-process col-md-4"><%= inProcess %></div>
+                                        <div class="daily-done col-md-4"><%= done %></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-2"></div>
+                            
+                        </div>
+
+                    </div>
+                </div>
+
+        </main>
+
+    </div>
+
+    <!-- change password modal -->
+    <% include templates/change-password.ejs %>
+
+    <!-- clear all tasks modal -->
+    <% include templates/clear-all-tasks.ejs %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../lib/client/javascripts/global.js"></script>
+    <script src="../lib/client/javascripts/validation.js"></script>
+    <script src="../lib/client/javascripts/timeline.js"></script>
+
+    <script>
+
+        //mark current tab in navbar
+        $('.nav.navbar-nav li').eq(2).addClass('active');
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+.about-page ul{
+    margin: 5% 10%;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.about-page ul li{
+    margin: 20px 0px;
+}

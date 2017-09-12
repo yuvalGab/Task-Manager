@@ -1,0 +1,27 @@
+<!-- clear all tasks modal -->
+<div class="modal fade" id="clearAllTasksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">clear all tasks</h4>
+            </div>
+            <div class="modal-body">
+                <p>Please enter a password to verify the user. All tasks will be deleted after pressing the "clear" button.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="clearPassword">password:</label>
+                        <input type="password" class="form-control" id="clearPassword" placeholder="insert your password (6-15 english letters an numbers)">
+                        <span id="clearPasswordError" class="help-block"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="clearAllTasksClose" data-dismiss="modal">close</button>
+                <button id="clearAllTasks" type="button" class="btn btn-danger">clear</button>
+                <p class="createError"></p>
+                <p class="createSuccess"></p>
+            </div>
+        </div>
+    </div>
+</div>

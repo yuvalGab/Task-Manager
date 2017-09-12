@@ -1,0 +1,32 @@
+.select-time{
+    margin: 10px;
+}
+.select-time > div{
+    display: inline-block;
+    text-align: center;
+    margin: 20px 0px;
+}
+.input-group.date{
+    margin: 0px 50px;
+}
+#analyze-btn{
+    display: block;
+    margin: 0 auto;
+}
+.input-group .form-control{
+    z-index: 0;
+    text-align: center;
+}
+table th, table td{
+    text-align: center;
+}
+.th-label{
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+    .input-group.date{
+        margin: 0px;
+    }
+}

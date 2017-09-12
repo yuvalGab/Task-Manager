@@ -1,0 +1,35 @@
+<!-- main navbar -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">task manager</a>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="collapse navbar-collapse" id="mainNavBar">
+            <ul class="nav navbar-nav">
+                <li><a href="/user/home">home</a></li>
+                <li><a href="/user/tasks">tasks</a></li>
+                <li><a href="/user/timeline">timeline</a></li>
+
+                <!-- drop down menu -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">more<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/user/statistics">statistics</a></li>
+                        <li><a href="/user/about">about</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>

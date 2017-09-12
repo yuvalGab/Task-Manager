@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">   
+    <link rel="stylesheet" href="../client/stylesheets/Normalize.css">
+    <link rel="stylesheet" href="../client/stylesheets/global.css">
+    <link rel="stylesheet" href="../client/stylesheets/home.css">
+    <link rel="stylesheet" href="../client/stylesheets/about.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header>
+
+            <!-- main navbar -->
+            <% include templates/navbar.ejs %>
+
+        </header>
+
+        <main>
+
+            <!-- sidebar -->
+            <% include templates/sidebar.ejs %>
+
+                <!-- page content -->
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+
+                        <!-- sidebar toggle button -->
+                        <button type="button" class="btn btn-info" id="porfile-btn">profile</button>
+
+                        <!-- about page -->
+                        <div class="about-page">
+
+                            <h1 class="page-label">System options</h1>
+
+                            <ul>
+                                <li>This task management system has been created to allow you to better manage your tasks.</li>
+                                <li>You can easily add and edit tasks as needed.</li>
+                                <li>Each task can be cataloged according to the appropriate status and priority.</li>
+                                <li>You can see the tasks of the day and tasks from previous days that were not completed on the home page.</li>
+                                <li>All other tasks can be viewed on the Tasks page. You can select the date you want to watch.</li>
+                                <li>The app has an option to filter tasks by status and priority to show the things that matter to you at a given moment.</li>
+                                <li>In the Timeline window you can scroll and predict how many tasks await you in the next few days or alternatively what remains in the old days.</li>
+                                <li>Finally, on the Statistics page there are graphs that show you summary data for each selected time.</li>
+                            </ul>
+                           
+                        </div>
+
+                    </div>
+                </div>
+
+        </main>
+
+    </div>
+
+    <!-- change password modal -->
+    <% include templates/change-password.ejs %>
+
+    <!-- clear all tasks modal -->
+    <% include templates/clear-all-tasks.ejs %>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="../lib/client/javascripts/global.js"></script>
+    <script src="../lib/client/javascripts/validation.js"></script>
+
+</body>
+
+</html>

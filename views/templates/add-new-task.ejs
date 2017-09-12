@@ -1,0 +1,73 @@
+<!-- add new task modal -->
+<div class="modal fade" id="addNewTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">add new task</h4>
+            </div>
+            <div class="modal-body">
+                <p>Insert the required field to create a new task. Please enter only valid data.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="taskLabel">label:</label>
+                        <input type="text" class="form-control" id="taskLabel" placeholder="insert task headline (required)" dir="auto">
+                        <span id="taskLabelError" class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDesc">description:</label>
+                        <input type="text" class="form-control" id="taskDesc" placeholder="insert task secondary title" dir="auto">
+                        <span id="taskDescError" class="help-block"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>date and time:
+                            <div class='input-group date' id='selectNewTaskTime'>
+                                <input type='text' class="form-control" id="taskTime" placeholder="pick task time and date (required)" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </label>
+                        <span id="taskTimeError" class="help-block"></span>
+                    </div>
+                    <div class="chose-status">
+                        <p>status:</p>
+                        <label class="radio-inline">
+                            <input type="radio" name="statusOptions" id="statusWaiting" value="waiting" checked="true"> waiting
+                        </label>
+                            <label class="radio-inline">
+                        <input type="radio" name="statusOptions" id="statusInProcess" value="in process"> in process
+                            </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="statusOptions" id="statusDone" value="done"> done
+                        </label>
+                    </div>
+                    <div class="chose-priority">
+                        <p>priority:</p>
+                        <label class="radio-inline">
+                            <input type="radio" name="priorityOptions" id="priorityLow" value="low" checked="true"> low
+                        </label>
+                            <label class="radio-inline">
+                        <input type="radio" name="priorityOptions" id="priorityMedium" value="medium"> medium
+                            </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="priorityOptions" id="priorityDone" value="high"> high
+                        </label>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-md-12">note:
+                            <textarea class="form-control" id="taskNote" name="taskNote" rows="3" dir="auto"></textarea>
+                            <span id="taskNoteError" class="help-block"></span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="newTaskClose" data-dismiss="modal">close</button>
+                <button id="addTask" type="button" class="btn btn-primary">add</button>
+                <p class="createError"></p>
+                <p class="createSuccess"></p>
+            </div>
+        </div>
+    </div>
+</div>

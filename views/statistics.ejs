@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css"
+    />
+    <link rel="stylesheet" href="../client/stylesheets/Normalize.css">
+    <link rel="stylesheet" href="../client/stylesheets/global.css">
+    <link rel="stylesheet" href="../client/stylesheets/home.css">
+    <link rel="stylesheet" href="../client/stylesheets/statistics.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <header>
+
+            <!-- main navbar -->
+            <% include templates/navbar.ejs %>
+
+        </header>
+
+        <main>
+
+            <!-- sidebar -->
+            <% include templates/sidebar.ejs %>
+
+                <!-- page content -->
+                <div id="page-content-wrapper">
+                    <div class="container-fluid">
+
+                        <!-- sidebar toggle button -->
+                        <button type="button" class="btn btn-info" id="porfile-btn">profile</button>
+
+                        <!-- statistics page -->
+                        <div class="statistics-page">
+
+                            <h1 class="page-label">statistics</h1>
+                            <div class="row">
+                                <div class="instructions col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 alert fade in">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <p>You are currently presented with a statistical analysis of all tasks. You can choose
+                                        a different date range.<br/>You must select a start and end time.</p>
+                                </div>
+                            </div>
+                            <div class="select-time clearfix">
+                                <div class="from col-md-6 col-sm-6 col-xs-12">
+                                    <label>
+                                        <div class='input-group date' id='selectAnalyzeStartTime'>
+                                            <input type='text' class="form-control" id="analyzeStartTime" placeholder="select analyze start time (required)" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="until col-md-6 col-sm-6 col-xs-12">
+                                    <label>
+                                        <div class='input-group date' id='selectAnalyzeEndTime'>
+                                            <input type='text' class="form-control" id="analyzeEndTime" placeholder="select analyze end time (required)" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-success" id="analyze-btn">analyze</button>
+                                <p class="createError"></p>
+                            </div>
+                            <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="th-label" colspan="4">status analysis</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th>waiting</th>
+                                    <th>in process</th>
+                                    <th>done</th>
+                                    <th>total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="waiting-num"><%= waiting %></td>
+                                    <td id="in-process-num"><%= inProcess %></td>
+                                    <td id="done-num"><%= done %></td>
+                                    <td class="total"><%= total %></td>
+                                </tr>
+                                <tr>
+                                    <td id="waiting-percent"><%= (waiting/total*100).toFixed(0) %>%</td>
+                                    <td id="in-process-percent"><%= (inProcess/total*100).toFixed(0) %>%</td>
+                                    <td id="done-percent"><%= (done/total*100).toFixed(0) %>%</td>
+                                    <td>100%</td>
+                                </tr>
+                            </tbody>
+                            <thead>
+                                <tr>
+                                    <th class="th-label" colspan="4">priority analysis</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th>low</th>
+                                    <th>medium</th>
+                                    <th>high</th>
+                                    <th>total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="low-num"><%= low %></td>
+                                    <td id="medium-num"><%= medium %></td>
+                                    <td id="high-num"><%= high %></td>
+                                    <td class="total"><%= total %></td>
+                                </tr>
+                                <tr>
+                                    <td id="low-percent"><%= (low/total*100).toFixed(0) %>%</td>
+                                    <td id="medium-percent"><%= (medium/total*100).toFixed(0) %>%</td>
+                                    <td id="high-percent"><%= (high/total*100).toFixed(0) %>%</td>
+                                    <td>100%</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+        </main>
+
+    </div>
+
+    <!-- change password modal -->
+    <% include templates/change-password.ejs %>
+
+        <!-- clear all tasks modal -->
+        <% include templates/clear-all-tasks.ejs %>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="/bower_components/moment/min/moment.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+            <script src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+            <script src="../lib/client/javascripts/global.js"></script>
+            <script src="../lib/client/javascripts/validation.js"></script>
+            <script src="../lib/client/javascripts/statistics.js"></script>
+
+</body>
+
+</html>
